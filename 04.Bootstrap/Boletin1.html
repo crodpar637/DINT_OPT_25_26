@@ -42,15 +42,22 @@
                 <a class="nav-link" href="#">Contacto</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 bg-white text-black" type="search" aria-label="Search" />
-              <button class="btn btn-danger" type="submit">Buscar</button>
+            <form  role="search">
+              <div class="row g-3">
+                <div class="col-12 col-lg-auto">
+                  <input class="form-control me-2 bg-white text-black" type="search" aria-label="Search" />
+                </div>
+                <div class="col-12 col-lg-auto">
+                  <button class="btn btn-danger" type="submit">Buscar</button>
+                </div>
+              </div>
+
             </form>
           </div>
         </div>
       </nav>
     </div>
-    <div class="row d-md-none d-lg-flex">
+    <div class="row mx-1 d-md-none d-lg-flex">
       <div class="col-12 col-sm-6 col-lg-4 mb-3">
         <div class="card">
           <img src="http://www.w3schools.com/w3images/lights.jpg" class="card-img-top img-thumbnail" alt="...">
@@ -93,11 +100,131 @@
       </div>
 
     </div>
-    <div class="row">
-
+    <div class="row mx-1 d-none d-md-block d-lg-none">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="1000">
+            <img src="http://www.w3schools.com/w3images/lights.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="1000">
+            <img src="http://www.w3schools.com/w3images/nature.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="1000">
+            <img src="http://www.w3schools.com/w3images/fjords.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
-    <div class="row">
+    <div class="row mb-5">
+      <form>
+        <div class="col-12 col-sm-10 offset-sm-1 col-lg-6 offset-lg-4">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+          </div>
+          <div class="mb-3">
+            <label for="apellidos" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+          </div>
 
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2">
+              <label for="telefono" class="col-form-label">Telefono</label>
+            </div>
+
+            <div class="col-12 col-lg-2">
+              <input type="text" class="form-control" id="telefono" placeholder="Telefono">
+            </div>
+
+            <div class="col-12 col-lg-2">
+              <label for="fnacimiento" class="col-form-label">F. nacimiento</label>
+            </div>
+
+            <div class="col-12 col-lg-2">
+              <select class="form-select" aria-label="Default select example">
+                <option selected value="-1">Día</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div class="col-12 col-lg-2">
+              <select class="form-select" aria-label="Default select example">
+                <option selected value="-1">Mes</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div class="col-12 col-lg-2">
+              <select class="form-select" aria-label="Default select example">
+                <option selected value="-1">Año</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <textarea class="form-control" id="direccion" rows="3" placeholder="Dirección"></textarea>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-auto">
+              <label for="genero" class="form-check-label">Genero</label>
+            </div>
+            <div class="col-12 col-lg-auto">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genero" id="genero-m" value="masculino">
+                <label class="form-check-label" for="genero">Masculino</label>
+              </div>
+            </div>
+            <div class="col-12 col-lg-auto">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genero" id="genero-f" value="femenino">
+                <label class="form-check-label" for="genero">Femenino</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="noticias">
+            <label class="form-check-label" for="checkDefault">
+              Enviar noticias
+            </label>
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="noticias">
+            <label class="form-check-label" for="checkDefault">
+              Acepto <a href="#" class="text-decoration-none">Términos y condiciones</a>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+          <button type="reset" class="btn btn-outline-dark mb-3">Limpiar</button>
+        </div>
+      </form>
     </div>
   </div>
 
