@@ -25,7 +25,8 @@ $mensaje .= "<table class='table table-striped'>";
 $mensaje .= "<thead><tr><th>IDCOMPONENTE</th><th>NOMBRE</th><th>DESCRIPCION</th><th>PRECIO</th><th>TIPO</th><th>ACCIÓN</th></tr></thead>";
 $mensaje .= "<tbody>";
 
-// Recorrer filas
+// Recorrer filas mientras $fila != null
+// OJO: es una asignación a la variable $fila y después se evalua $fila != null
 while ($fila = mysqli_fetch_assoc($resultado)) {
     $mensaje .= "<tr><td>" . $fila['idcomponente'] . "</td>";
     $mensaje .= "<td>" . $fila['nombre'] . "</td>";
