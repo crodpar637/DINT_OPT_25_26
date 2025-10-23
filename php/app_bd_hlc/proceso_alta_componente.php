@@ -23,11 +23,11 @@ if (mysqli_errno($conexion) != 0) {
     $descrerror = mysqli_error($conexion);
     $mensaje =  "<h2 class='text-center mt-5'>Se ha producido un error numero $numerror que corresponde a: $descrerror </h2>";
 } else {
-    $mensaje =  "<h2 class='text-center mt-5'>Componente insertado</h2>"; 
+    $mensaje =  "<h2 class='text-center mt-5'>Componente insertado</h2>";
 }
 // Redireccionar tras 5 segundos al index.
 // Siempre debe ir antes de DOCTYPE
-header( "refresh:5;url=index.php" );
+header("refresh:5;url=index.php");
 
 // Aquí empieza la página
 include_once("cabecera.html");
@@ -36,3 +36,6 @@ include_once("cabecera.html");
 echo $mensaje;
 
 ?>
+</body>
+
+</html>

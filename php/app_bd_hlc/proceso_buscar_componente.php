@@ -16,7 +16,7 @@ $resultado = mysqli_query($conexion, $sql);
 if(mysqli_num_rows($resultado) > 0 ){ // Mostrar tabla de datos, hay datos
 
     $mensaje = "<h2 class='text-center'>Componente localizado</h2>";
-    $mensaje .= "<table class='table'>";
+    $mensaje .= "<table class='table table-striped'>";
     $mensaje .= "<thead><tr><th>IDCOMPONENTE</th><th>NOMBRE</th><th>DESCRIPCION</th><th>PRECIO</th><th>TIPO</th><th>ACCION</th></tr></thead>";
     $mensaje .= "<tbody>";
     

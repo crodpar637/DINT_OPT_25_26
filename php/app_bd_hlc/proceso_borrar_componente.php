@@ -22,6 +22,10 @@ if (mysqli_errno($conexion) != 0) {
     $mensaje =  "<h2 class='text-center mt-5'>Componente con id $idcomponente borrado</h2>"; 
 }
 
+// Redireccionar tras 5 segundos al index.
+// Siempre debe ir antes de DOCTYPE
+header("refresh:5;url=index.php");
+
 include_once("cabecera.html");
 
 // Mostrar mensaje calculado antes
