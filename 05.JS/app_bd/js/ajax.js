@@ -1,6 +1,6 @@
 "use strict";
 
-const rutaBackend = "http://localhost/app_bd/backend/";
+const rutaBackend = "http://localhost/05.JS/app_bd/backend/";
 
 /**
  * Realiza peticiones AJAX de tipo GET
@@ -26,7 +26,7 @@ async function peticionGET(url, parametros) {
     if (respuestaServidor.ok) {  // Si es una respuesta http OK (200)
 
          // JSON.parse de los datos recibidos
-         response = await respuestaServidor.json();
+        response = await respuestaServidor.json();
 
     } else { // Respuesta distinta de http OK (200)
         console.error("Error al acceder al acceder al servidor (STATUS != 200..299) Status: " + respuestaServidor.status);

@@ -75,9 +75,8 @@ async function actualizarDesplegableTipos(idTipoSeleccionado) {
         }
 
     }
-    // Agrego los options generados a partir del contenido de la BD
+    // Agrego los options generados a partir del contenido de la BD en todos los desplegables
     frmListadoTipo.lstTipo.innerHTML = options;
-    // Aprovecho y actualizo todos los desplegables se vea o no el formulario
     frmModificarComponente.lstModTipo.innerHTML = options;
     frmAltaComponente.lstAltaTipo.innerHTML = options;
 }
