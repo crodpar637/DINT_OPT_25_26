@@ -1,38 +1,46 @@
 "use strict";
 
-const rutaBackend = "http://localhost/app_bd/backend/";
+const rutaBackend = "http://localhost/05.JS/app_bd/backend/";
 
 /**
  * Realiza peticiones AJAX de tipo GET
  * @param {string} url 
  * @param {FormData} parametros - Objeto FormData con los parámetros de la llamada 
- * @returns response
+ * @returns {Object} response
  */
 async function peticionGET(url, parametros) {
-    // Creamos el objeto URL que contiene la dirección url de la petición
-    // y los datos que enviamos con la petición
-    let oURL = new URL(rutaBackend);
-    oURL.pathname += url; // por ejemplo "alta_tipo.php"
+    let response;
 
-    // Agregamos los datos de los parámetros que vienen en un objeto FormData 
-    for (let [clave, valor] of parametros) {
-        oURL.searchParams.append(clave, valor);
-    }
+    try {
+        // Construimos la URL completa
+        let oURL = new URL(rutaBackend);
+        oURL.pathname += url;
 
-    // Finalmente hacemos la petición AJAX con el método fetch
-    let respuestaServidor = await fetch(oURL, { method: "GET" });
-    let response; // Datos devueltos por el servidor o datos de error
+        // Añadimos los parámetros del FormData
+        for (let [clave, valor] of parametros) {
+            oURL.searchParams.append(clave, valor);
+        }
 
-    if (respuestaServidor.ok) {  // Si es una respuesta http OK (200)
+        // Hacemos la petición
+        const respuestaServidor = await fetch(oURL, { method: "GET" });
 
-         // JSON.parse de los datos recibidos
-         response = await respuestaServidor.json();
+        if (respuestaServidor.ok) {
+            response = await respuestaServidor.json();
+        } else {
+            console.error("Error al acceder al servidor. Status:", respuestaServidor.status);
+            response = {
+                ok: false,
+                mensaje: `Error HTTP: ${respuestaServidor.status}`,
+                datos: null
+            };
+        }
 
-    } else { // Respuesta distinta de http OK (200)
-        console.error("Error al acceder al acceder al servidor (STATUS != 200..299) Status: " + respuestaServidor.status);
+    } catch (error) {
+        // Error de conexión o fetch (no hay respuesta del servidor)
+        console.error("No se pudo conectar con el servidor:", error);
         response = {
             ok: false,
-            mensaje: "Error al acceder al acceder al servidor (STATUS != 200..299) Status: " + respuestaServidor.status,
+            mensaje: "No se pudo conectar con el servidor. Verifique su conexión o que el servidor esté disponible.",
             datos: null
         };
     }
@@ -44,33 +52,42 @@ async function peticionGET(url, parametros) {
  * Realiza peticiones AJAX de tipo POST
  * @param {string} url 
  * @param {FormData} parametros - Objeto FormData con los parámetros de la llamada 
- * @returns 
+ * @returns {Object} response
  */
-async function peticionPOST(url, parametros){
-    // Creamos el objeto URL que contiene la dirección url de la petición
-    // y los datos que enviamos con la petición
-    let oURL = new URL(rutaBackend);
-    oURL.pathname += url; // por ejemplo "alta_tipo.php"
-
-    let respuestaServidor = await fetch(oURL, {
-        body: parametros,  // objeto FormData
-        method: "POST"
-    });
+async function peticionPOST(url, parametros) {
     let response;
 
-    if (respuestaServidor.ok) {  // Si es una respuesta http OK (200)
+    try {
+        // Construimos la URL completa
+        let oURL = new URL(rutaBackend);
+        oURL.pathname += url;
 
-        // JSON.parse de los datos recibidos
-        response = await respuestaServidor.json();
+        // Hacemos la petición
+        const respuestaServidor = await fetch(oURL, {
+            body: parametros,
+            method: "POST"
+        });
 
-   } else { // Respuesta distinta de http OK (200)
-       console.error("Error al acceder al acceder al servidor (STATUS != 200..299).Status: " + respuestaServidor.status);
-       response = {
-           ok: false,
-           mensaje: "Error al acceder al acceder al servidor (STATUS != 200..299). Status: " + respuestaServidor.status,
-           datos: null
-       };
-   }
+        if (respuestaServidor.ok) {
+            response = await respuestaServidor.json();
+        } else {
+            console.error("Error al acceder al servidor. Status:", respuestaServidor.status);
+            response = {
+                ok: false,
+                mensaje: `Error HTTP: ${respuestaServidor.status}`,
+                datos: null
+            };
+        }
 
-   return response;
+    } catch (error) {
+        // Error de conexión o fetch (no hay respuesta del servidor)
+        console.error("No se pudo conectar con el servidor:", error);
+        response = {
+            ok: false,
+            mensaje: "No se pudo conectar con el servidor. Verifique su conexión o que el servidor esté disponible.",
+            datos: null
+        };
+    }
+
+    return response;
 }
