@@ -14,7 +14,7 @@
   Uso típico:
     require_once __DIR__ . '/config.php';
     $conexion = obtenerConexion();
-    // ... operaciones con $conexion ...
+    --> operaciones con $conexion 
     responder($datos, true, 'OK', $conexion);
 
 */
