@@ -193,4 +193,24 @@ class Empresa {
 
         return respuesta;
     }
+
+    async listadoComponentes(){
+        let datos = new FormData();
+
+        let respuesta = await peticionGET("get_componentes.php", datos);
+
+        return respuesta;
+    }
+
+    async listadoPorPrecio(precioMin,precioMax){
+        let datos = new FormData();
+        datos.append("precioMin",precioMin);
+        datos.append("precioMax",precioMax);
+
+        let respuesta = await peticionGET("get_componentes_precio.php", datos);
+
+        return respuesta;
+    }
+
+        
 }
