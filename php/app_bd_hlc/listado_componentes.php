@@ -10,7 +10,19 @@ if (isset($_GET['lstTipo'])) {
     $sql = "SELECT c.*, p.descripcion AS tipodesc FROM componente c, tipo p 
 WHERE c.idtipo = p.idtipo AND p.idtipo = $idtipo ORDER BY idcomponente ASC;";
 
-} else { // No recibo idtipo para filtrar
+} else if (isset($_GET['txtPrecioMin']) && isset($_GET['txtPrecioMax']) ) { 
+
+    $precio_min = $_GET['txtPrecioMin'];
+    $precio_max = $_GET['txtPrecioMax'];
+
+    $sql = "SELECT c.*, p.descripcion AS tipodesc 
+    FROM componente c, tipo p 
+    WHERE c.idtipo = p.idtipo 
+    AND c.precio BETWEEN $precio_min AND $precio_max 
+    ORDER BY idcomponente ASC;";
+
+
+} else { // No recibo idtipo ni txtPrecioMin y txtPrecioMax para filtrar
     $sql = "SELECT c.*, p.descripcion AS tipodesc FROM componente c, tipo p 
     WHERE c.idtipo = p.idtipo ORDER BY idcomponente ASC;";
 

@@ -92,13 +92,14 @@ function ocultarFormularios() {
 }
 
 async function procesarListadoPorPrecio() {
-    let precioMin = parseFloat(frmListadoPrecio.txtPrecioMinimo.value.trim());
-    let precioMax = parseFloat(frmListadoPrecio.txtPrecioMaximo.value.trim());
+  let precioMin = parseFloat(frmListadoPrecio.txtPrecioMinimo.value.trim());
+  let precioMax = parseFloat(frmListadoPrecio.txtPrecioMaximo.value.trim());
 
-    let respuesta = await oEmpresa.listadoPorPrecio(precioMin,precioMax);
+  let respuesta = await oEmpresa.listadoPorPrecio(precioMin, precioMax);
 
-    let listado = '<table class="table table-striped">';
-  listado += "<thead><tr><th>IDCOMPONENTE</th><th>NOMBRE</th><th>DESCRIPCION</th><th>PRECIO</th><th>TIPO</th></tr></thead>";
+  let listado = '<table class="table table-striped">';
+  listado +=
+    "<thead><tr><th>IDCOMPONENTE</th><th>NOMBRE</th><th>DESCRIPCION</th><th>PRECIO</th><th>TIPO</th></tr></thead>";
   listado += "<tbody>";
 
   for (let fila of respuesta.datos) {
@@ -113,7 +114,6 @@ async function procesarListadoPorPrecio() {
 
   // Agregamos el contenido a la capa de listados
   document.querySelector("#listados").innerHTML = listado;
-
 }
 
 async function procesarListadoComponente() {
