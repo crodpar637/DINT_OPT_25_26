@@ -243,7 +243,7 @@ function procesarBotonEditarComponente(oEvento) {
   let boton = null;
 
   // Verificamos si han hecho clic sobre el botón o el icono
-  if (oEvento.target.nodeName == "I" || oEvento.target.nodeName == "button") {
+  if (oEvento.target.nodeName == "I" || oEvento.target.nodeName == "BUTTON") {
     if (oEvento.target.nodeName == "I") {
       // Pulsacion sobre el icono
       boton = oEvento.target.parentElement; // El padre es el boton
