@@ -39,13 +39,13 @@
                 iLeft += 5;
         */
             if (oE.code == "ArrowDown" && (iTop+12) < window.innerHeight) // abajo
-                iTop += 1;
+                iTop += 5;
             if (oE.code == "ArrowUp" && iTop > 0) // arriba
-                iTop -= 1;
+                iTop -= 5;
             if (oE.code == "ArrowLeft" && iLeft > 0) // izquierda
-                iLeft -= 1;
+                iLeft -= 5;
             if (oE.code == "ArrowRight" && (iLeft+12) < window.innerWidth) // derecha
-                iLeft += 1;
+                iLeft += 5;
 
             oPelota.style.top = iTop + "px";
             oPelota.style.left = iLeft + "px";
