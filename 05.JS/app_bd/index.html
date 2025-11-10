@@ -58,6 +58,7 @@
 						<li>
 							<hr class="dropdown-divider">
 						</li>
+						<li><a class="dropdown-item" href="#" id="mnuBuscarTipoNombre">Buscar tipos de componentes por nombre</a></li>
 						<li><a class="dropdown-item" href="#" id="mnuListadoTipo">Listado de tipos de componentes</a></li>
 					</ul>
 				</li>
@@ -285,6 +286,29 @@
 					</div>
 				</fieldset>
 			</form>
+			<form class="form-horizontal d-none" name="frmBuscarTipoNombre" id="frmBuscarTipoNombre" >
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Buscar un tipo de componente por nombre</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtNombreTipo">Nombre del tipo de componente</label>
+						<div class="col-xs-4">
+							<input id="txtNombreTipo" name="txtNombreTipo" placeholder="Nombre del tipo de componente"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+	
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnBuscarTipoNombre"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnBuscarTipoNombre" name="btnBuscarTipoNombre"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>		
 		</div>
 	</div>
 

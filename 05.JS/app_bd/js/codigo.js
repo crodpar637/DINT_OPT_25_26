@@ -29,6 +29,9 @@ function registrarEventos() {
   document
     .querySelector("#mnuListadoPorPrecio")
     .addEventListener("click", mostrarFormulario);
+    document
+    .querySelector("#mnuBuscarTipoNombre")
+    .addEventListener("click", mostrarFormulario);
   // Botones
   frmAltaTipo.btnAceptarAltaTipo.addEventListener("click", procesarAltaTipo);
   frmBuscarComponente.btnBuscarComponente.addEventListener(
@@ -50,6 +53,10 @@ function registrarEventos() {
   frmListadoPrecio.btnAceptarListadoPorPrecio.addEventListener(
     "click",
     procesarListadoPorPrecio
+  );
+  frmBuscarTipoNombre.btnBuscarTipoNombre.addEventListener(
+    "click",
+    procesarBuscarTipoNombre
   );
 }
 
@@ -76,6 +83,9 @@ function mostrarFormulario(oEvento) {
       frmAltaComponente.classList.remove("d-none");
       actualizarDesplegableTipos(undefined);
       break;
+    case "mnuBuscarTipoNombre":
+      frmBuscarTipoNombre.classList.remove("d-none");
+      break;
   }
 }
 
@@ -86,6 +96,7 @@ function ocultarFormularios() {
   frmModificarComponente.classList.add("d-none");
   frmAltaComponente.classList.add("d-none");
   frmListadoPrecio.classList.add("d-none");
+  frmBuscarTipoNombre.classList.add("d-none");
   // Borrado del contenido de capas con resultados
   document.querySelector("#resultadoBusqueda").innerHTML = "";
   document.querySelector("#listados").innerHTML = "";
@@ -452,4 +463,36 @@ function validarAltaComponente() {
   }
 
   return valido;
+}
+
+
+async function procesarBuscarTipoNombre() {
+  let nombreTipo = frmBuscarTipoNombre.txtNombreTipo.value.trim();
+
+  let respuesta = await oEmpresa.buscarTipoPorNombre(nombreTipo);
+
+  let tabla = "<table class='table table-striped' id='listadoTipoNombre'>";
+  tabla +=
+    "<thead><tr><th>IDTIPO</th><th>NOMBRE TIPO</th><th>DESCRIPCION</th><th>ACCION</th></tr></thead><tbody>";
+
+  for (let tipoComponente of respuesta.datos) {
+    tabla += "<tr><td>" + tipoComponente.idtipo + "</td>";
+    tabla += "<td>" + tipoComponente.tipo + "</td>";
+    tabla += "<td>" + tipoComponente.descripcion + "</td>";
+    
+
+    tabla +=
+      "<td><button class='btn btn-primary' data-tipo='" +
+      JSON.stringify(tipoComponente) +
+      "'><i class='bi bi-pencil-square'></i></button></td></tr>";
+  }
+
+  tabla += "</tbody></table>";
+
+  // Agregamos el contenido a la capa de listados
+  document.querySelector("#listados").innerHTML = tabla;
+  // Agregar manejador de evento para toda la tabla
+  document
+    .querySelector("#listadoTipoNombre")
+    .addEventListener("click", procesarBotonEditarComponente);
 }

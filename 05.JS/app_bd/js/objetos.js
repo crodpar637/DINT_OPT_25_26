@@ -211,4 +211,13 @@ class Empresa {
 
     return respuesta;
   }
+
+  async buscarTipoPorNombre(nombreTipo){
+    let datos = new FormData();
+    datos.append("nombre", nombreTipo);
+
+    let respuesta = await peticionGET("get_tipo_componentes_nombre.php", datos);
+
+    return respuesta;
+  }
 }
