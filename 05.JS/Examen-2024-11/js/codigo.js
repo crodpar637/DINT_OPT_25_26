@@ -2,6 +2,7 @@
 
 // main
 var oGestor = new GestorLibreria();
+var idgenero = 0;
 
 registrarEventos();
 
@@ -16,6 +17,7 @@ function registrarEventos() {
 
     // Botones
     frmCrearLibro.btnCrearLibro.addEventListener("click",procesarCrearLibro);
+    frmListado.btnListado.addEventListener("click",procesarListado);
 }
 
 function mostrarFormularios(oEvento) {
@@ -76,4 +78,9 @@ async function procesarCrearLibro(){
         frmCrearLibro.reset();
         frmCrearLibro.classList.add("d-none");
     }
+}
+
+function procesarListado(){
+   open("tarjetas.html");
+   idgenero = frmListado.lstGenero.value;
 }
