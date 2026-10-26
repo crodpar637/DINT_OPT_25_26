@@ -12,11 +12,11 @@ mysqli_query($conexion, $sql);
 if (mysqli_errno($conexion) != 0) {
     $numerror = mysqli_errno($conexion);
     $descrerror = mysqli_error($conexion);
-
-    responder(null, true, "Se ha producido un error número $numerror que corresponde a: $descrerror <br>", $conexion);
+    // Prototipo responder($datos,$ok,$mensaje,$conexion)
+    responder(null, false, "Se ha producido un error número $numerror que corresponde a: $descrerror <br>", $conexion);
 
 } else {
-    // Prototipo responder($datos,$error,$mensaje,$conexion)
-    responder(null, false, "Se ha dado de alta el componente", $conexion);
+    // Prototipo responder($datos,$ok,$mensaje,$conexion)
+    responder(null, true, "Se ha dado de alta el componente", $conexion);
 }
 ?>

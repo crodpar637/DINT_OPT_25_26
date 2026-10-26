@@ -293,7 +293,7 @@ async function procesarModificarComponente() {
 
     alert(respuesta.mensaje);
 
-    if (!respuesta.error) {
+    if (respuesta.ok) {
       // Si NO hay error
       //Resetear formulario
       frmModificarComponente.reset();
@@ -418,7 +418,7 @@ async function procesarAltaComponente() {
   let nombre = frmAltaComponente.txtAltaNombre.value.trim();
   let descripcion = frmAltaComponente.txtAltaDescripcion.value.trim();
   let precio = parseFloat(frmAltaComponente.txtAltaPrecio.value.trim());
-  let idTipo = frmAltaComponente.lstAltaTipo.value;
+  let idTipo = parseInt(frmAltaComponente.lstAltaTipo.value);
 
   // Validar datos del formulario
   if (validarAltaComponente()) {
@@ -427,7 +427,7 @@ async function procesarAltaComponente() {
     );
     alert(respuesta.mensaje);
 
-    if (!respuesta.error) {
+    if (respuesta.ok) {
       // Si NO hay error
       //Resetear formulario
       frmAltaComponente.reset();
@@ -442,7 +442,7 @@ function validarAltaComponente() {
   let nombre = frmAltaComponente.txtAltaNombre.value.trim();
   let descripcion = frmAltaComponente.txtAltaDescripcion.value.trim();
   let precio = parseFloat(frmAltaComponente.txtAltaPrecio.value.trim());
-  let idTipo = frmAltaComponente.lstAltaTipo.value;
+  let idTipo = parseInt(frmAltaComponente.lstAltaTipo.value);
 
   let valido = true;
   let errores = "";

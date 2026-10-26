@@ -62,7 +62,7 @@ async function peticionPOST(url, parametros) {
         let oURL = new URL(rutaBackend);
         oURL.pathname += url;
 
-        // Hacemos la petición
+        // Hacemos la petición (request)
         const respuestaServidor = await fetch(oURL, {
             body: parametros,
             method: "POST"
